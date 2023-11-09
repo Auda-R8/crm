@@ -1,12 +1,27 @@
 <template>
   <div class="app-main-layout">
-    <router-view />
+    <Navigation/>
+    <Aside/>
+
+    <router-view/>
+
+    <ActionBtn/>
   </div>
 </template>
 
 <script>
+import ActionBtn from "../components/btns/ActionBtn.vue"
+import Aside from "../components/Aside.vue"
+import Navigation from "../components/Navigation.vue"
+
+
 export default {
-  name: "PageLayout"
+  name: "PageLayout",
+  components: {
+    ActionBtn,
+    Aside,
+    Navigation
+  }
 }
 </script>
 
