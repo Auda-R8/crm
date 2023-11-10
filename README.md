@@ -14,10 +14,18 @@ Project Initialize
 ## v1.0.1
 
 <h2>What's new:</h2>
-<hr/>
 
 + Add routes
 + Add Views
 + Add Components
 + Add Layouts
 + Add MaterializeCSS
+
+
+## v1.0.2
+
+<h2>What's new:</h2>
+
++ Create new branch for templates
++ Remove directory templates from branch main
++ Add materialize icons
