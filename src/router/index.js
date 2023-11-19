@@ -58,22 +58,6 @@ const routes = [
         component: () => import("../views/Planning.vue")
     },
     {
-        path: '/planning',
-        name: 'planning',
-        meta: {
-            layout: 'PageLayout'
-        },
-        component: () => import("../views/Planning.vue")
-    },
-    {
-        path: '/planning',
-        name: 'planning',
-        meta: {
-            layout: 'PageLayout'
-        },
-        component: () => import("../views/Planning.vue")
-    },
-    {
         path: '/profile',
         name: 'profile',
         meta: {
@@ -88,6 +72,14 @@ const routes = [
             layout: 'PageLayout'
         },
         component: () => import("../views/Record.vue")
+    },
+    {
+        path: '/settings',
+        name: 'settings',
+        meta: {
+            layout: 'PageLayout'
+        },
+        component: () => import("../views/Settings.vue")
     },
 ]
 

@@ -13,7 +13,7 @@ Project Initialize
 
 ## v1.0.1
 
-<h2>What's new:</h2>
+<h3>What's new:</h3>
 
 + Add routes
 + Add Views
@@ -24,8 +24,15 @@ Project Initialize
 
 ## v1.0.2
 
-<h2>What's new:</h2>
+<h3>What's new:</h3>
 
 + Create new branch for templates
 + Remove directory templates from branch main
 + Add materialize icons
+
+## v1.0.3
+
+<h3>What's new:</h3>
+
++ Add Login validation
++ Add Registration validation without CheckBox

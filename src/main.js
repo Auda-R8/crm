@@ -1,7 +1,14 @@
 import { createApp } from 'vue'
-import router from './router/index.js'
 import App from './App.vue'
 
-import("./styles/style.css")
+import Vuex from "vuex"
 
-createApp(App).use(router).mount('#app')
+import router from './router/index.js'
+
+import("./styles/style.css")
+import("materialize-css/dist/js/materialize.min")
+
+createApp(App)
+    .use(router)
+    .use(Vuex)
+    .mount('#app')
