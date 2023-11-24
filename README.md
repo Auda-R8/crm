@@ -43,4 +43,4 @@ Project Initialize
 
 + Add Authorization/Logging of user from the Database
 + Add output data of authorized user from database
-
++ Add Test Reg
