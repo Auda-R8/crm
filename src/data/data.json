@@ -19,7 +19,7 @@
   "settings": {
     "locale": "ru",
     "timezone": "UTC+3",
-    "format": "dd.MM.yyyy"
+    "format": "dd/MM/yy"
   },
   "datetime": {
     "timezones": [
