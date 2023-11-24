@@ -107,11 +107,11 @@ export default {
           await Database.setActiveUser(this.email)
           this.$router.push('/')
           this.$message('Вы успешно авторизовались')
-        } else this.printUserNotFound()
+        } else {
+          this.$error('Пользователя с таким E-Mail не существует!')
+          this.$message('Вы можете зарегистрироваться с этим E-Mail')
+        }
       }
-    },
-    printUserNotFound() {
-
     }
   }
 }

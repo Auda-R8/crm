@@ -124,6 +124,21 @@ export class Database {
         }
     }
 
+    static async addNewUser(email, password, name) {
+        try {
+            const lastId = (await (await fetch(this._path)).json()).users.length + 1
+            await axios.post("http://localhost:3000/users", {
+                "id": lastId,
+                "email": email,
+                "password": password,
+                "name": name
+            })
+            await Database.setActiveUser(email)
+        } catch (e) {
+            console.error("Error in adding new user: " + e)
+        }
+    }
+
     static async getActiveUser() {
         try {
             return (await (await fetch(this._path)).json()).activeUser

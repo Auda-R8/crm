@@ -1,20 +1,28 @@
 {
   "activeUser": {
-    "status": "close",
-    "email": "",
-    "name": "",
-    "password": ""
+    "status": "open",
+    "email": "root@root.root",
+    "name": "root",
+    "password": "rootroot"
   },
   "users": [
     {
+      "id": 1,
       "email": "root@root.root",
       "password": "rootroot",
       "name": "root"
     },
     {
+      "id": 2,
       "email": "admin@admin.ru",
       "password": "adminadmin",
       "name": "Админ"
+    },
+    {
+      "id": 3,
+      "email": "test@mail.su",
+      "password": "123123",
+      "name": "qwerty"
     }
   ],
   "settings": {

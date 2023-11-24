@@ -89,10 +89,16 @@
 
       <p>
         <label>
-          <input type="checkbox"/>
+          <input
+              type="checkbox"
+              v-model="agree"
+          />
           <span>С правилами согласен</span>
         </label>
       </p>
+      <small
+          v-if="!this.agree && v$.agree.$dirty"
+          class="helper-text invalid">Вы <b>должны</b> согласиться <br> Иначе останетесь без аккаунта ;)</small>
     </div>
     <div class="card-action">
       <div>
@@ -116,6 +122,7 @@
 <script>
 import {useVuelidate} from '@vuelidate/core'
 import {email, required, minLength} from "@vuelidate/validators"
+import {Database} from "../data/Database.js"
 
 export default {
   name: "Registration",
@@ -126,25 +133,31 @@ export default {
     email: '',
     password: '',
     passwordRepeat: '',
-    name: ''
+    name: '',
+    agree: false
   }),
   validations() {
     return {
       email: {email, required},
       password: {required, minLength: minLength(6)},
       passwordRepeat: {required, minLength: minLength(6)},
-      name: {required}
+      name: {required},
+      agree: {required}
     }
   },
   methods: {
     isPasswordMatch() {
       return this.password === this.passwordRepeat
     },
-    submitRegistration() {
-
-      if (this.v$.$invalid) this.v$.$touch()
-      else {
+    async submitRegistration() {
+      if (this.v$.$invalid) {
+        this.v$.$touch()
+        this.$message('Вы не заполнили поля, или заполнили неправильными данными')
+      } else {
         this.v$.$reset()
+        await Database.addNewUser(this.email, this.password, this.name)
+        this.$router.push('/')
+        this.$message('Регистрация прошла успешно')
       }
     }
   }

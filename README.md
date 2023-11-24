@@ -52,3 +52,17 @@ Project Initialize
   
     If the user is not logged in, attempts to navigate through directories
     in the address bar will be blocked
+
+## v1.0.6
+
+<h3>What's new:</h3>
+
++ Add user registration linked to the database
+
+<h3>Soon!</h3>
+
++ Current exchange rates of the 
+Central Bank of the Russian Federation;
+
++ Viewing, depositing, transferring to other 
+currencies of the user's account;
