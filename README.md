@@ -44,3 +44,11 @@ Project Initialize
 + Add Authorization/Logging of user from the Database
 + Add output data of authorized user from database
 
+## v1.0.5
+
+<h3>What's new:</h3>
+
++ Add routing authorization:
+  
+    If the user is not logged in, attempts to navigate through directories
+    in the address bar will be blocked

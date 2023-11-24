@@ -1,11 +1,13 @@
 import {createRouter, createWebHistory} from "vue-router";
+import {Database} from "../data/Database";
 
 const routes = [
     {
         path: '/',
         name: 'home',
         meta: {
-            layout: 'PageLayout'
+            layout: 'PageLayout',
+            requiresAuth: true
         },
         component: () => import("../views/Home.vue")
     },
@@ -13,7 +15,8 @@ const routes = [
         path: '/login',
         name: 'login',
         meta: {
-            layout: 'LoginLayout'
+            layout: 'LoginLayout',
+            requiresAuth: false
         },
         component: () => import("../views/Login.vue")
     },
@@ -21,7 +24,8 @@ const routes = [
         path: '/registration',
         name: 'registration',
         meta: {
-            layout: 'LoginLayout'
+            layout: 'LoginLayout',
+            requiresAuth: false
         },
         component: () => import("../views/Registration.vue")
     },
@@ -29,7 +33,8 @@ const routes = [
         path: '/categories',
         name: 'categories',
         meta: {
-            layout: 'PageLayout'
+            layout: 'PageLayout',
+            requiresAuth: true
         },
         component: () => import("../views/Categories.vue")
     },
@@ -37,7 +42,8 @@ const routes = [
         path: '/detail',
         name: 'detail',
         meta: {
-            layout: 'PageLayout'
+            layout: 'PageLayout',
+            requiresAuth: true
         },
         component: () => import("../views/DetailRecord.vue")
     },
@@ -45,7 +51,8 @@ const routes = [
         path: '/history',
         name: 'history',
         meta: {
-            layout: 'PageLayout'
+            layout: 'PageLayout',
+            requiresAuth: true
         },
         component: () => import("../views/History.vue")
     },
@@ -53,7 +60,8 @@ const routes = [
         path: '/planning',
         name: 'planning',
         meta: {
-            layout: 'PageLayout'
+            layout: 'PageLayout',
+            requiresAuth: true
         },
         component: () => import("../views/Planning.vue")
     },
@@ -61,7 +69,8 @@ const routes = [
         path: '/profile',
         name: 'profile',
         meta: {
-            layout: 'PageLayout'
+            layout: 'PageLayout',
+            requiresAuth: true
         },
         component: () => import("../views/Profile.vue")
     },
@@ -69,7 +78,8 @@ const routes = [
         path: '/record',
         name: 'record',
         meta: {
-            layout: 'PageLayout'
+            layout: 'PageLayout',
+            requiresAuth: true
         },
         component: () => import("../views/Record.vue")
     },
@@ -77,7 +87,8 @@ const routes = [
         path: '/settings',
         name: 'settings',
         meta: {
-            layout: 'PageLayout'
+            layout: 'PageLayout',
+            requiresAuth: true
         },
         component: () => import("../views/Settings.vue")
     },
@@ -86,6 +97,13 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes
+})
+
+router.beforeEach(async (to, from, next) => {
+    const status = await Database.getStatusSession()
+    if (to.meta.requiresAuth && status === 'close')
+        next('/login')
+    else next()
 })
 
 export default router

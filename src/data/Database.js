@@ -70,6 +70,60 @@ export class Database {
         }
     }
 
+    static async getAuthorizedStatus() {
+        try {
+            return (await (await fetch(this._path)).json()).isAuthorized
+        } catch (e) {
+            console.error("Error getting isAuthorized: " + e)
+            throw e
+        }
+    }
+
+    /*
+        This Method opens or closes the user session
+        depending on the status parameter.
+        If the status parameter is true, the session will be opened,
+        otherwise it will be closed
+     */
+    static async setAuthorizedStatus(status) {
+        try {
+            // const data = await (await fetch(this._path)).json()
+            // data.isAuthorized = isAuthorized
+            await axios.patch("http://localhost:3000/activeUser", {
+                "status": status ? "open" : "close"
+            })
+        } catch (e) {
+            console.log("Error updating isAuthorized: " + e)
+            throw e
+        }
+    }
+
+    /*
+        Method clears user data when session is closing.
+     */
+    static async closeSession() {
+        try {
+            await axios.patch("http://localhost:3000/activeUser", {
+                "status": "close",
+                "email": "",
+                "name": "",
+                "password": ""
+            })
+        } catch (e) {
+            console.error("Error of closing session: " + e)
+            throw e
+        }
+    }
+
+    static async getStatusSession() {
+        try {
+           return (await (await fetch(this._path)).json()).activeUser.status
+        } catch (e) {
+            console.error("Error of getting status session: " + e)
+            throw e
+        }
+    }
+
     static async getActiveUser() {
         try {
             return (await (await fetch(this._path)).json()).activeUser
@@ -83,8 +137,8 @@ export class Database {
         try {
             const users = (await (await fetch(this._path)).json()).users
             const user = users.find(elem => elem.email === email)
-
             await axios.patch("http://localhost:3000/activeUser", {
+                "status": "open",
                 "email": user.email,
                 "name": user.name,
                 "password": user.password

@@ -1,9 +1,9 @@
 {
+  "isAuthorized": false,
   "activeUser": {
-    "status": "close",
-    "email": "",
-    "name": "",
-    "password": ""
+    "email": "admin@admin.ru",
+    "name": "Админ",
+    "password": "adminadmin"
   },
   "users": [
     {

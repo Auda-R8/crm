@@ -73,7 +73,8 @@ export default {
       this.dropdown.destroy
   },
   methods: {
-    logout() {
+    async logout() {
+      await Database.closeSession()
       this.$router.push('/login?message=logout')
     }
   }
