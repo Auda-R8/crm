@@ -1,8 +1,8 @@
 {
   "activeUser": {
-    "email": "root@root.root",
-    "name": "root",
-    "password": "rootroot"
+    "email": "admin@admin.ru",
+    "name": "Админ",
+    "password": "adminadmin"
   },
   "users": [
     {
@@ -19,7 +19,7 @@
   "settings": {
     "locale": "ru",
     "timezone": "UTC+3",
-    "format": "dd/MM/yy"
+    "format": "dd.MM.yyyy"
   },
   "datetime": {
     "timezones": [

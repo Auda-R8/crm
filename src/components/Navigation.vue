@@ -43,7 +43,7 @@
 
 <script>
 import {Database} from "../data/Database.js"
-import store from "../store/store.js";
+import store from "../store/store.js"
 
 export default {
   title: "Navigation",
@@ -61,6 +61,7 @@ export default {
   }),
   async mounted() {
     this.userName = (await Database.getActiveUser()).name
+    this.now = await Database.getNow()
     this.$refs.date.textContent = await Database.getNow()
     this.dropdown = M.Dropdown.init(this.$refs.dropdown, {
       closeOnClick: true,

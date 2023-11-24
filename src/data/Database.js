@@ -1,11 +1,11 @@
 import {DateTime, Settings} from "luxon"
 import axios from "axios"
 
+
 export class Database {
 
     static _path = "src/data/data.json"
 
-    // Старая реализация
     static async getFilters() {
         const response = await fetch(this._path)
         const data = await response.json()
@@ -49,7 +49,10 @@ export class Database {
 
     static async setFormat(newFormat) {
         try {
+
             await axios.patch('http://localhost:3000/settings', {format: newFormat})
+
+            axios.patch('http://localhost:3000/settings', {format: newFormat})
         } catch (e) {
             console.log('Error fetching format: ' + e)
             throw e
@@ -67,12 +70,12 @@ export class Database {
         }
     }
 
-    static async getActiveUser(){
+    static async getActiveUser() {
         try {
             return (await (await fetch(this._path)).json()).activeUser
         } catch (e) {
             console.error("Error of returning: " + e)
-                throw e
+            throw e
         }
     }
 
@@ -90,8 +93,5 @@ export class Database {
             console.log("Error of fetching: " + e)
             throw e
         }
-    }
-
-    static parse() {
     }
 }
