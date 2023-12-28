@@ -52,7 +52,7 @@ export class Database {
 
             await axios.patch('http://localhost:3000/settings', {format: newFormat})
 
-            axios.patch('http://localhost:3000/settings', {format: newFormat})
+            await axios.patch('http://localhost:3000/settings', {format: newFormat})
         } catch (e) {
             console.log('Error fetching format: ' + e)
             throw e
@@ -70,34 +70,6 @@ export class Database {
         }
     }
 
-    static async getAuthorizedStatus() {
-        try {
-            return (await (await fetch(this._path)).json()).isAuthorized
-        } catch (e) {
-            console.error("Error getting isAuthorized: " + e)
-            throw e
-        }
-    }
-
-    /*
-        This Method opens or closes the user session
-        depending on the status parameter.
-        If the status parameter is true, the session will be opened,
-        otherwise it will be closed
-     */
-    static async setAuthorizedStatus(status) {
-        try {
-            // const data = await (await fetch(this._path)).json()
-            // data.isAuthorized = isAuthorized
-            await axios.patch("http://localhost:3000/activeUser", {
-                "status": status ? "open" : "close"
-            })
-        } catch (e) {
-            console.log("Error updating isAuthorized: " + e)
-            throw e
-        }
-    }
-
     /*
         Method clears user data when session is closing.
      */
@@ -107,7 +79,9 @@ export class Database {
                 "status": "close",
                 "email": "",
                 "name": "",
-                "password": ""
+                "password": "",
+                "bill": 0,
+                "rates": []
             })
         } catch (e) {
             console.error("Error of closing session: " + e)
@@ -131,11 +105,22 @@ export class Database {
                 "id": lastId,
                 "email": email,
                 "password": password,
-                "name": name
+                "name": name,
+                "bill": 0,
+                "rates": []
             })
             await Database.setActiveUser(email)
         } catch (e) {
             console.error("Error in adding new user: " + e)
+        }
+    }
+
+    static async getUser(email) {
+        try {
+            return (await (await fetch(this._path)).json()).user.some(elem => elem.id === email)
+        } catch (e) {
+            console.error("Error of  fetching data: " + e)
+            throw e
         }
     }
 
@@ -156,7 +141,9 @@ export class Database {
                 "status": "open",
                 "email": user.email,
                 "name": user.name,
-                "password": user.password
+                "password": user.password,
+                "bill": user.bill,
+                "rates": user.rates
             })
         } catch (e) {
             console.log("Error of fetching: " + e)

@@ -59,6 +59,9 @@ Project Initialize
 
 + Add user registration linked to the database
 
+<h3>Bag fixed:</h3>
++ Routing logout user
+
 <h3>Soon!</h3>
 
 + Current exchange rates of the 
@@ -66,3 +69,4 @@ Central Bank of the Russian Federation;
 
 + Viewing, depositing, transferring to other 
 currencies of the user's account;
+  

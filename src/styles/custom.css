@@ -1,0 +1,100 @@
+.flex {
+    display: flex;
+}
+
+.jc-end {
+    justify-content: end;
+}
+
+.jc-start {
+    justify-content: start;
+}
+
+.jc-center {
+    justify-content: center;
+}
+
+.jc-sb {
+    justify-content: space-between;
+}
+
+.jc-sa {
+    justify-content: space-around;
+}
+
+.jc-se {
+    justify-content: space-evenly;
+}
+
+.gap-1 {
+    gap: 1em;
+}
+
+.card .input-bill {
+    outline: none;
+    color: white;
+    border-bottom: 2px solid transparent;
+}
+
+.card .input-bill:focus {
+    border-bottom-color: white;
+}
+
+input:not([type]),
+input[type="text"]:not(.browser-default),
+input[type="password"]:not(.browser-default),
+input[type="email"]:not(.browser-default),
+input[type="url"]:not(.browser-default),
+input[type="time"]:not(.browser-default),
+input[type="date"]:not(.browser-default),
+input[type="datetime"]:not(.browser-default),
+input[type="datetime-local"]:not(.browser-default),
+input[type="tel"]:not(.browser-default),
+input[type="number"]:not(.browser-default),
+input[type="search"]:not(.browser-default) {
+    border: inherit;
+}
+
+.card input:not([type]):focus:not([readonly]),
+.card input[type="text"]:not(.browser-default):focus:not([readonly]),
+.card input[type="password"]:not(.browser-default):focus:not([readonly]),
+.card input[type="email"]:not(.browser-default):focus:not([readonly]),
+.card input[type="url"]:not(.browser-default):focus:not([readonly]),
+.card input[type="time"]:not(.browser-default):focus:not([readonly]),
+.card input[type="date"]:not(.browser-default):focus:not([readonly]),
+.card input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+.card input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+.card input[type="tel"]:not(.browser-default):focus:not([readonly]),
+.card input[type="number"]:not(.browser-default):focus:not([readonly]),
+.card input[type="search"]:not(.browser-default):focus:not([readonly]),
+.card textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #fff;
+    -webkit-box-shadow: 0 1px 0 0 #fff;
+    box-shadow: 0 1px 0 0 #fff;
+}
+
+.aside {
+    flex: 1 0 0px;
+    list-style: none;
+    list-style-type: none;
+    padding: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    background: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: rgba(38, 38, 38, 0.04) 0px 1px 2px, rgba(38, 38, 38, 0.16) 0px 8px 16px;
+
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    margin-bottom: 20px;
+}
+
+.app-sidenav {
+
+}
+
+.app-content {
+    padding-left: 260px;
+}

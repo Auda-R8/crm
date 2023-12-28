@@ -9,7 +9,16 @@
     {
       "email": "root@root.root",
       "password": "rootroot",
-      "name": "root"
+      "name": "root",
+      "bill": 0,
+      "rates": [
+        {
+          "id": 1,
+          "currency": "USD",
+          "rate": "0.0112",
+          "date": "2023-11-25"
+        }
+      ]
     },
     {
       "email": "admin@admin.ru",

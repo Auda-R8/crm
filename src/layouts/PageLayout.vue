@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import ActionBtn from "../components/btns/ActionBtn.vue"
+import ActionBtn from "../components/button/ActionBtn.vue"
 import Aside from "../components/Aside.vue"
 import Navigation from "../components/Navigation.vue"
 import {Database} from "../data/Database.js";
